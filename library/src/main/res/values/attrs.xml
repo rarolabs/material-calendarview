@@ -65,6 +65,8 @@
       <enum name="vertical" value="0"/>
       <enum name="horizontal" value="1"/>
     </attr>
+
+    <attr name="mcv_showArrows" format="boolean"/>
   </declare-styleable>
 
 </resources>

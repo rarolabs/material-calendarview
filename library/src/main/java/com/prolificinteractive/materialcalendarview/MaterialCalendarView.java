@@ -344,18 +344,24 @@ public class MaterialCalendarView extends ViewGroup {
         setTileHeight(tileHeight);
       }
 
-      setLeftArrow(
-          a.getResourceId(
-              R.styleable.MaterialCalendarView_mcv_leftArrow,
-              R.drawable.mcv_action_previous
-          )
-      );
-      setRightArrow(
-          a.getResourceId(
-              R.styleable.MaterialCalendarView_mcv_rightArrow,
-              R.drawable.mcv_action_next
-          )
-      );
+      final boolean showArrows = a.getBoolean(R.styleable.MaterialCalendarView_mcv_showArrows, true);
+      if(showArrows) {
+          setLeftArrow(
+                  a.getResourceId(
+                          R.styleable.MaterialCalendarView_mcv_leftArrow,
+                          R.drawable.mcv_action_previous
+                  )
+          );
+          setRightArrow(
+                  a.getResourceId(
+                          R.styleable.MaterialCalendarView_mcv_rightArrow,
+                          R.drawable.mcv_action_next
+                  )
+          );
+      } else {
+          buttonFuture.setVisibility(INVISIBLE);
+          buttonPast.setVisibility(INVISIBLE);
+      }
 
       setSelectionColor(
           a.getColor(
